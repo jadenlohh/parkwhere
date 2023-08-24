@@ -10,7 +10,27 @@
     width: 100%;
 }
 
+.skeleton {
+    border: none !important;
+}
 
+.skeleton h5 {
+    background-color: rgb(228, 228, 228);
+    height: 1em;
+}
+
+.skeleton p {
+    background-color: rgb(228, 228, 228);
+    height: 1em;
+    width: 80%;
+}
+
+.skeleton .tags {
+    border: none;
+    background-color: rgb(228, 228, 228);
+    height: 1.4em;
+    width: 20%;
+}
 
 .card {
     border-radius: .6em;
