@@ -4,6 +4,8 @@ import Head from 'next/head'
 import useSWR from 'swr'
 import Card from '../components/Card'
 import Script from 'next/script'
+import Image from 'next/image'
+import profilePic from '../public/parkwhere.png'
 
 const fetcher = url => fetch(url).then((res) => res.json())
 
@@ -72,12 +74,24 @@ export default function Home() {
         <title>Carpark Locator</title> 
       </Head>
 
-      <Script src="https://kit.fontawesome.com/aa241108d7.js" crossOrigin="anonymous" />
-
       <div className='container'>
+        <nav className='row justify-content-between align-items-center' style={{paddingTop: '1em'}}>
+          <div className='col-4'>
+            <Image src={profilePic} alt="Picture of the author" width={125} />
+          </div>
+
+          <div className='col-2 text-center'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="3" y1="12" x2="14" y2="12"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="18" x2="7" y2="18"/>
+            </svg>
+          </div>
+        </nav>
+
         <div className={styles.searchBarContainer}>
           <form>
-            <input type='text' className={styles.searchBar} id='searchBar' placeholder='Search by address' onKeyUp={search} />
+            <input type='text' className={styles.searchBar} id='searchBar' placeholder='Search by name or address' onKeyUp={search} />
           </form>
         </div>
 
