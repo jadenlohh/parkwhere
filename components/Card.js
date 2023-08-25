@@ -1,5 +1,15 @@
 import { useState } from 'react'
+import { Rubik, Noto_Sans } from 'next/font/google'
 import styles from '../styles/Card.module.css'
+
+const rubik = Rubik({
+  subsets: ['latin']
+})
+
+const notoSan = Noto_Sans({
+  subsets: ['latin'],
+  weight: ['600']
+})
 
 const ConditionalWrapper = ({vehicleType}) => {
   if (vehicleType == 'C') {
@@ -17,10 +27,10 @@ const Card = ({item, index}) => {
   const [isOpened, setOpened] = useState(false)
 
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${rubik.className}`}>
       <p className={styles.lotsAvailable}>{item.AvailableLots} Lots Available</p>
 
-      <h4 className={styles.location}>{item.Development}</h4>
+      <h4 className={`${styles.location} ${notoSan.className}`}>{item.Development}</h4>
 
       <div className={styles.cardBody}>
         <ConditionalWrapper vehicleType={item.LotType}></ConditionalWrapper>
