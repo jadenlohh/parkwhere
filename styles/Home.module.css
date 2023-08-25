@@ -14,7 +14,7 @@
     border: none !important;
 }
 
-.skeleton h5 {
+.skeleton h4 {
     background-color: rgb(228, 228, 228);
     height: 1em;
 }
@@ -40,8 +40,8 @@
     padding: 1.5em 1.2em;
 }
 
-.card h5 {
-    font-weight: 600;
+.card h4 {
+    font-weight: bold;
 }
 
 .cardBody {
@@ -51,7 +51,7 @@
 
 .distance {
     color: grey;
-    font-size: .65em;
+    font-size: .55em;
     font-weight: 500;
 }
 
@@ -68,16 +68,24 @@
 .tags {
     border-radius: .2em;
     font-size: .85em;
-    padding: .2em .6em;
+    padding: .22em .8em;
 }
 
 .availabilityTag {
     border: 1px solid #2A9E00;
+    border-radius: 500px;
     color: #2A9E00;
+}
+
+.unavailable {
+    border: 1px solid #CE2029;
+    border-radius: 500px;
+    color: #CE2029;
 }
 
 .freeParkingTag {
     border: 1px solid #0050B5;
+    border-radius: 500px;
     color: #0050B5;
 }
 
