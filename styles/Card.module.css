@@ -1,0 +1,121 @@
+.col-sm-12 {
+    row-gap: 1em;
+}
+
+.card {
+    border-radius: .6em;
+    border: 1px solid rgb(223, 223, 223);
+    font-family: 'Rubik', sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    padding: 1.5em 1.2em;
+}
+
+.lotsAvailable {
+    display: inline-block;
+    font-size: .95em;
+    position: relative;
+    margin-top: .5em;
+    margin-bottom: 1em;
+}
+
+.lotsAvailable::after {
+    background-color: #FFB81C;
+    bottom: -.1em;
+    content: '';
+    height: .175em;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.location {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.cardBody {
+    font-size: .88em;
+    margin-top: 1em;
+}
+
+.distance {
+    color: grey;
+    font-size: .55em;
+    font-weight: 500;
+}
+
+.carparkType {
+    margin: .5em 0;
+}
+
+.tagsContainer {
+    column-gap: .4em;
+    display: flex;
+    margin-top: 1em;
+}
+
+.tags {
+    border-radius: .2em;
+    font-size: .85em;
+    padding: .22em .8em;
+}
+
+.availabilityTag {
+    border: 1px solid #2A9E00;
+    border-radius: 500px;
+    color: #2A9E00;
+}
+
+.unavailable {
+    border: 1px solid #CE2029;
+    border-radius: 500px;
+    color: #CE2029;
+}
+
+.freeParkingTag {
+    border: 1px solid #0050B5;
+    border-radius: 500px;
+    color: #0050B5;
+}
+
+.buttonContainer {
+    margin-top: 1.8em;
+}
+
+.btn {
+    border: 1px solid #0d6efd;
+    border-radius: .4em;
+    background-color: #0d6efd;
+    color: white;
+    cursor: pointer;
+    font-size: .9em;
+    outline: none;
+    padding: .75em;
+    width: 100%;
+}
+
+.btnOutline {
+    background-color: rgba(0, 0, 0, 0);
+    color: #0d6efd;
+}
+
+.mapOptions {
+    position: absolute;
+    top: 100%;
+    margin-top: .5em;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    background-color: white;
+    width: 100%;
+    border-radius: .5em;
+}
+
+.mapOptions a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    margin: 0;
+    padding: 0.8em;
+}
+
+.mapOptions a:hover {
+    background-color: rgb(228, 228, 228);
+}
