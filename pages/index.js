@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import useSWR from 'swr'
-import Card from '@/components/Card'
+import Card from '../components/Card'
 
 const fetcher = url => fetch(url).then((res) => res.json())
 
