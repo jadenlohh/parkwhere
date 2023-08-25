@@ -3,9 +3,15 @@ import Layout from '../components/layout'
 import Head from 'next/head'
 import useSWR from 'swr'
 import Card from '../components/Card'
-import Script from 'next/script'
+import Image from 'next/image'
+import logo from '../public/parkwhere.png'
+import { Rubik } from 'next/font/google'
 
 const fetcher = url => fetch(url).then((res) => res.json())
+
+const rubik = Rubik({
+  subsets: ['latin']
+})
 
 const search = () => {
   var input, filter, ul, li, a, i, txtValue
@@ -29,6 +35,10 @@ const search = () => {
 
 export default function Home() {
   const { data, error, isLoading } = useSWR('https://carpark-locator-api.vercel.app/', fetcher)
+
+  const showMenu = event => {
+    event.currentTarget.classList.toggle(styles.menuOpened)
+  }
 
   if (error) return "An error has occurred."
 
@@ -72,12 +82,21 @@ export default function Home() {
         <title>Carpark Locator</title> 
       </Head>
 
-      <Script src="https://kit.fontawesome.com/aa241108d7.js" crossOrigin="anonymous" />
-
       <div className='container'>
+        <nav className='row justify-content-between align-items-center' style={{paddingTop: '1em'}}>
+          <div className='col-4'>
+            <Image src={logo} alt='Logo' width={120} priority={true} />
+          </div>
+
+          <div className='col-4 text-end'>
+            <a href='' className={rubik.className}><button className={styles.btn}>Where I park?</button></a>
+          </div>
+        </nav>
+
+
         <div className={styles.searchBarContainer}>
           <form>
-            <input type='text' className={styles.searchBar} id='searchBar' placeholder='Search by address' onKeyUp={search} />
+            <input type='text' className={styles.searchBar} id='searchBar' placeholder='Search by name or address' onKeyUp={search} />
           </form>
         </div>
 

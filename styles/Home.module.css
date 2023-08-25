@@ -1,3 +1,15 @@
+.btn {
+    border: 1px solid #0d6efd;
+    border-radius: .4em;
+    color: #0d6efd;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    font-size: .85em;
+    outline: none;
+    padding: .6em;
+    width: 90%;
+}
+
 .searchBarContainer {
     margin: 2em auto;
 }
@@ -5,8 +17,9 @@
 .searchBar {
     border-radius: .5em;
     border: 1px solid #495057;
-    padding: .9rem .75rem;
+    padding: .8rem .75rem;
     outline: none;
+    font-size: .9em;
     width: 100%;
 }
 
