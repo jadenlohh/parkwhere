@@ -2,7 +2,8 @@ import styles from '../styles/Home.module.css'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import useSWR from 'swr'
-import Card from '@/components/Card'
+import Card from '../components/Card'
+import Script from 'next/script'
 
 const fetcher = url => fetch(url).then((res) => res.json())
 
@@ -68,14 +69,10 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>Carpark Locator</title>
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link href="https://fonts.googleapis.com/css2?family=Rubik&family=Noto+Sans:wght@600&display=swap" rel="stylesheet" />
-
-        <script src="https://kit.fontawesome.com/aa241108d7.js" crossOrigin="anonymous"></script>
+        <title>Carpark Locator</title> 
       </Head>
+
+      <Script src="https://kit.fontawesome.com/aa241108d7.js" crossOrigin="anonymous" />
 
       <div className='container'>
         <div className={styles.searchBarContainer}>
