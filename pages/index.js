@@ -2,20 +2,9 @@ import styles from '../styles/Home.module.css'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import useSWR from 'swr'
+import Card from '@/components/Card'
 
 const fetcher = url => fetch(url).then((res) => res.json())
-
-const ConditionalWrapper = ({vehicleType}) => {
-  if (vehicleType == 'C') {
-    return <p className={styles.carparkType}>Lot Type: <span>Cars</span></p>
-  }
-  else if (vehicleType == 'Y') {
-    return <p className={styles.carparkType}>Lot Type: <span>Motorcycles</span></p>
-  }
-  else {
-    return <p className={styles.carparkType}>Lot Type: <span>Heavy Vehicles</span></p>
-  }
-}
 
 export default function Home() {
 	const { data, error, isLoading } = useSWR('http://localhost:8000', fetcher)
@@ -76,46 +65,15 @@ export default function Home() {
 				</div>
 
 				<div className='row gy-4'>
-					{
+					<ul style={{listStyle: 'none'}}>
+          {
 						data.value.map((item, index) => {
 							return (
-								<div className='col-md-4 col-sm-12' key={index}>
-									<div className={styles.card}>
-                    <p className={styles.lotsAvailable}>{item.AvailableLots} Lots Available</p>
-
-										<h4 className={styles.location}>{item.Development}</h4>
-
-										<div className={styles.cardBody}>
-                      <ConditionalWrapper vehicleType={item.LotType}></ConditionalWrapper>
-
-											<div className={styles.tagsContainer}>
-											  {
-                          (item.AvailableLots != 0) ? 
-                            <span className={`${styles.tags} ${styles.availabilityTag}`}>Available</span> : 
-                            <span className={`${styles.tags} ${styles.availabilityTag} ${styles.unavailable}`}>Unavailable</span>
-                        }
-												<span className={`${styles.tags} ${styles.freeParkingTag}`}>Free Parking</span>
-											</div>
-
-											<div className={styles.buttonContainer}>
-												<div className='row align-items-center'>
-													<div className='col-6'>
-														<button type='button' className={styles.btn}>Details</button>
-													</div>
-
-													<div className='col-6'>
-                            <a href={'https://www.google.com/maps/place/' + item.Location.split(' ')[0] + 'N+' + item.Location.split(' ')[1] + 'E'} target='_blank'>
-                              <button type='button-outline' className={`${styles.btn} ${styles.btnOutline}`}>View on Map</button>
-                            </a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								<li key={index}><Card item={item} /></li>
 							)
 						})
 					}
+          </ul>
 				</div>
 			</div>
 		</Layout>
