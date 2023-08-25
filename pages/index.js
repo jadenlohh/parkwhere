@@ -77,7 +77,7 @@ export default function Home() {
       <div className='container'>
         <nav className='row justify-content-between align-items-center' style={{paddingTop: '1em'}}>
           <div className='col-4'>
-            <Image src={profilePic} alt="Picture of the author" width={125} />
+            <Image src={profilePic} alt='Logo' width={120} />
           </div>
 
           <div className='col-2 text-center'>
