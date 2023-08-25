@@ -69,10 +69,10 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>Carpark Locator</title>
-        
-        <Script src="https://kit.fontawesome.com/aa241108d7.js" crossOrigin="anonymous" />
+        <title>Carpark Locator</title> 
       </Head>
+
+      <Script src="https://kit.fontawesome.com/aa241108d7.js" crossOrigin="anonymous" />
 
       <div className='container'>
         <div className={styles.searchBarContainer}>
