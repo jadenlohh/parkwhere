@@ -3,10 +3,22 @@ import Layout from '../components/layout'
 import Head from 'next/head'
 import useSWR from 'swr'
 
-const fetcher = (url) => fetch(url).then((res) => res.json())
+const fetcher = url => fetch(url).then((res) => res.json())
+
+const ConditionalWrapper = ({vehicleType}) => {
+  if (vehicleType == 'C') {
+    return <p className={styles.carparkType}>Lot Type: <span>Cars</span></p>
+  }
+  else if (vehicleType == 'Y') {
+    return <p className={styles.carparkType}>Lot Type: <span>Motorcycles</span></p>
+  }
+  else {
+    return <p className={styles.carparkType}>Lot Type: <span>Heavy Vehicles</span></p>
+  }
+}
 
 export default function Home() {
-	const { data, error, isLoading } = useSWR('https://api.data.gov.sg/v1/transport/carpark-availability', fetcher)
+	const { data, error, isLoading } = useSWR('http://localhost:8000', fetcher)
 
 	if (error) return "An error has occurred."
 
@@ -51,7 +63,7 @@ export default function Home() {
 
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-				<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
+				<link href="https://fonts.googleapis.com/css2?family=Rubik&family=Noto+Sans:wght@600&display=swap" rel="stylesheet" />
 
 				<script src="https://kit.fontawesome.com/aa241108d7.js" crossOrigin="anonymous"></script>
 			</Head>
@@ -65,20 +77,20 @@ export default function Home() {
 
 				<div className='row gy-4'>
 					{
-						data.items[0].carpark_data.map((item, index) => {
+						data.value.map((item, index) => {
 							return (
 								<div className='col-md-4 col-sm-12' key={index}>
 									<div className={styles.card}>
-										<h4>{item.carpark_number} <span className={styles.distance}>(123m away)</span></h4>
+                    <p className={styles.lotsAvailable}>{item.AvailableLots} Lots Available</p>
+
+										<h4 className={styles.location}>{item.Development}</h4>
 
 										<div className={styles.cardBody}>
-											<p className={styles.location}><i className="fa-sharp fa-solid fa-location-dot"></i> <span>BLK 207/208 JURONG EAST STREET 21</span></p>
-
-											<p className={styles.lotsAvailable}><i className="fa-solid fa-square-parking"></i> <span>{item.carpark_info[0].lots_available} Lots Available</span></p>
+                      <ConditionalWrapper vehicleType={item.LotType}></ConditionalWrapper>
 
 											<div className={styles.tagsContainer}>
 											  {
-                          (item.carpark_info[0].lots_available != 0) ? 
+                          (item.AvailableLots != 0) ? 
                             <span className={`${styles.tags} ${styles.availabilityTag}`}>Available</span> : 
                             <span className={`${styles.tags} ${styles.availabilityTag} ${styles.unavailable}`}>Unavailable</span>
                         }
@@ -92,7 +104,9 @@ export default function Home() {
 													</div>
 
 													<div className='col-6'>
-														<button type='button-outline' className={`${styles.btn} ${styles.btnOutline}`}>View on Map</button>
+                            <a href={'https://www.google.com/maps/place/' + item.Location.split(' ')[0] + 'N+' + item.Location.split(' ')[1] + 'E'} target='_blank'>
+                              <button type='button-outline' className={`${styles.btn} ${styles.btnOutline}`}>View on Map</button>
+                            </a>
 													</div>
 												</div>
 											</div>
