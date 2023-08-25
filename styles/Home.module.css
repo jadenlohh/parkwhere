@@ -5,8 +5,9 @@
 .searchBar {
     border-radius: .5em;
     border: 1px solid #495057;
-    padding: .9rem .75rem;
+    padding: .8rem .75rem;
     outline: none;
+    font-size: .9em;
     width: 100%;
 }
 
