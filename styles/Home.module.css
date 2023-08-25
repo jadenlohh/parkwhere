@@ -40,8 +40,26 @@
     padding: 1.5em 1.2em;
 }
 
-.card h4 {
-    font-weight: bold;
+.lotsAvailable {
+    display: inline-block;
+    font-size: .95em;
+    position: relative;
+    margin-top: .5em;
+    margin-bottom: 1em;
+}
+
+.lotsAvailable::after {
+    background-color: #FFB81C;
+    bottom: -.1em;
+    content: '';
+    height: .175em;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.location {
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .cardBody {
@@ -55,7 +73,7 @@
     font-weight: 500;
 }
 
-.location, .lotsAvailable {
+.carparkType {
     margin: .5em 0;
 }
 
