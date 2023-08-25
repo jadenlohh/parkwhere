@@ -11,11 +11,11 @@ const notoSan = Noto_Sans({
   weight: ['600']
 })
 
-const ConditionalWrapper = ({vehicleType}) => {
-  if (vehicleType == 'C') {
+const VehicleType = ({type}) => {
+  if (type == 'C') {
     return <p className={styles.carparkType}>Lot Type: <span>Cars</span></p>
   }
-  else if (vehicleType == 'Y') {
+  else if (type == 'Y') {
     return <p className={styles.carparkType}>Lot Type: <span>Motorcycles</span></p>
   }
   else {
@@ -23,17 +23,29 @@ const ConditionalWrapper = ({vehicleType}) => {
   }
 }
 
-const Card = ({item, index}) => {
+const ChangeCase = ({address}) => {
+  var words = address.split(' ')
+  var newWord = []
+
+  words.forEach(word => {
+    newWord.push(word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+  })
+
+  return <h4 className={notoSan.className}>{newWord.join(' ')}</h4>
+}
+
+const Card = ({item}) => {
   const [isOpened, setOpened] = useState(false)
 
   return (
     <div className={`${styles.card} ${rubik.className}`}>
       <p className={styles.lotsAvailable}>{item.AvailableLots} Lots Available</p>
 
-      <h4 className={`${styles.location} ${notoSan.className}`}>{item.Development}</h4>
+      {/* <h4 className={`${styles.location} ${notoSan.className}`}>{item.Development.split(' ').charAt(0).toUpperCase().join('')}</h4> */}
+      <ChangeCase address={item.Development} />
 
       <div className={styles.cardBody}>
-        <ConditionalWrapper vehicleType={item.LotType}></ConditionalWrapper>
+        <VehicleType type={item.LotType}></VehicleType>
 
         <div className={styles.tagsContainer}>
           {
