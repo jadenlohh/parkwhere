@@ -6,9 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 export default function App({ Component, pageProps }) {
 	return (
 		<>
-			<Head>
-				<Script src="https://kit.fontawesome.com/aa241108d7.js" crossorigin="anonymous" />
-			</Head>
+      <Script src="https://kit.fontawesome.com/aa241108d7.js" crossorigin="anonymous" />
 
 			<Component {...pageProps} />
 		</>
