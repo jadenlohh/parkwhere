@@ -28,7 +28,7 @@ const search = () => {
 }
 
 export default function Home() {
-  const { data, error, isLoading } = useSWR('http://localhost:8000', fetcher)
+  const { data, error, isLoading } = useSWR('https://carpark-locator-api.vercel.app/', fetcher)
 
   if (error) return "An error has occurred."
 
