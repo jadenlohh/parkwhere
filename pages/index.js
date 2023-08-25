@@ -64,17 +64,15 @@ export default function Home() {
 					</form>
 				</div>
 
-				<div className='row gy-4'>
-					<ul style={{listStyle: 'none'}}>
+        <ul className='row gy-3' style={{listStyle: 'none', padding: 0}}>
           {
 						data.value.map((item, index) => {
 							return (
-								<li key={index}><Card item={item} /></li>
+								<li className='col-md-4 col-sm-12' key={index}><Card item={item} /></li>
 							)
 						})
 					}
-          </ul>
-				</div>
+        </ul>
 			</div>
 		</Layout>
 	)
