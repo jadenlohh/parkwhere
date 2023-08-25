@@ -24,11 +24,10 @@ export default function Home() {
 						return (
 							<div className='col-md-4 col-sm-12' key={i}>
 								<div className={`${styles.card} ${styles.skeleton}`}>
-									<h5></h5>
+									<h4></h4>
 
 									<div className={styles.cardBody}>
 										<p></p>
-
 										<p></p>
 
 										<div className={styles.tagsContainer}>
@@ -51,10 +50,10 @@ export default function Home() {
 				<title>Carpark Locator</title>
 
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
 				<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
 
-				<script src="https://kit.fontawesome.com/aa241108d7.js" crossorigin="anonymous"></script>
+				<script src="https://kit.fontawesome.com/aa241108d7.js" crossOrigin="anonymous"></script>
 			</Head>
 
 			<div className='container'>
@@ -70,7 +69,7 @@ export default function Home() {
 							return (
 								<div className='col-md-4 col-sm-12' key={index}>
 									<div className={styles.card}>
-										<h5>{item.carpark_number} <span className={styles.distance}>(123m away)</span></h5>
+										<h4>{item.carpark_number} <span className={styles.distance}>(123m away)</span></h4>
 
 										<div className={styles.cardBody}>
 											<p className={styles.location}><i className="fa-sharp fa-solid fa-location-dot"></i> <span>BLK 207/208 JURONG EAST STREET 21</span></p>
@@ -78,7 +77,11 @@ export default function Home() {
 											<p className={styles.lotsAvailable}><i className="fa-solid fa-square-parking"></i> <span>{item.carpark_info[0].lots_available} Lots Available</span></p>
 
 											<div className={styles.tagsContainer}>
-												<span className={`${styles.tags} ${styles.availabilityTag}`}>Available</span>
+											  {
+                          (item.carpark_info[0].lots_available != 0) ? 
+                            <span className={`${styles.tags} ${styles.availabilityTag}`}>Available</span> : 
+                            <span className={`${styles.tags} ${styles.availabilityTag} ${styles.unavailable}`}>Unavailable</span>
+                        }
 												<span className={`${styles.tags} ${styles.freeParkingTag}`}>Free Parking</span>
 											</div>
 
