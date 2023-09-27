@@ -4,6 +4,7 @@ import Head from 'next/head'
 import useSWR from 'swr'
 import Card from '../components/Card'
 import Navbar from '../components/Navbar'
+import IndexPageLoading from '@/components/IndexPageLoading'
 
 const fetcher = url => fetch(url).then((res) => res.json())
 
@@ -34,41 +35,7 @@ export default function Home() {
 
   if (error) return "An error has occurred."
 
-  if (isLoading) return (
-    <div className='container'>
-      <Navbar />
-
-      <div className={styles.searchBarContainer}>
-        <form>
-          <input type='text' className={styles.searchBar} placeholder='Search by name or address' />
-        </form>
-      </div>
-
-      <div className='row gy-4'>
-        {
-          [...Array(20).keys()].map(i => {
-            return (
-              <div className='col-md-4 col-sm-12' key={i}>
-                <div className={`${styles.card} ${styles.skeleton}`}>
-                  <h4></h4>
-
-                  <div className={styles.cardBody}>
-                    <p></p>
-                    <p></p>
-
-                    <div className={styles.tagsContainer}>
-                      <span className={styles.tags}></span>
-                      <span className={styles.tags}></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )
-          })
-        }
-      </div>
-    </div>
-  )
+  if (isLoading) return <IndexPageLoading />
 
   return (
     <Layout>
