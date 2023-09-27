@@ -27,18 +27,27 @@
     border: none !important;
 }
 
+@keyframes loadSkeleton {
+    0% { background-color: rgb(228, 228, 228); }
+    50% { background-color: rgb(218, 218, 218); }
+    100% { background-color: rgb(228, 228, 228); }
+}
+
 .skeleton h4 {
+    animation: loadSkeleton 1s infinite;
     background-color: rgb(228, 228, 228);
     height: 1em;
 }
 
 .skeleton p {
+    animation: loadSkeleton 1s infinite;
     background-color: rgb(228, 228, 228);
     height: 1em;
     width: 80%;
 }
 
 .skeleton .tags {
+    animation: loadSkeleton 1s infinite;
     border: none;
     background-color: rgb(228, 228, 228);
     height: 1.4em;
