@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className='row justify-content-between align-items-center' style={{ paddingTop: '1em' }}>
       <div className='col-4'>
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="88%" viewBox="0 0 500 200" enableBackground="new 0 0 500 200" xmlSpace="preserve">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" className={styles.logo} viewBox="0 0 500 200" enableBackground="new 0 0 500 200" xmlSpace="preserve">
           <path fill="#FEFEFF" opacity="1.000000" stroke="none"
             d="
               M473.000000,201.000000 

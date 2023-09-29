@@ -1,3 +1,7 @@
+.logo { 
+    width: 88%;
+}
+
 .btn {
     border: 1px solid #0d6efd;
     border-radius: .4em;
@@ -52,4 +56,16 @@
     background-color: rgb(228, 228, 228);
     height: 1.4em;
     width: 20%;
+}
+
+@media (min-width: 992px) {
+    .logo {
+        width: 50%;
+    }
+
+    .btn {
+        width: 30%;
+        padding: 1em 0;
+        white-space: nowrap;
+    }
 }
