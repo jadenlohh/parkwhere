@@ -1,0 +1,22 @@
+.carparkDetails {
+    padding: 0 0.5em;
+    margin: 3em 0;
+}
+
+.carparkRates {
+    margin: 2em 0;
+}
+
+.address {
+    border-left: 4px solid #FFB81C;
+    padding-left: 1em;
+}
+
+.ratesContainer {
+    border-bottom: 1px solid rgb(235, 235, 235);
+    padding: 1.2em 0;
+}
+
+.ratesContainer p {
+    margin: 0;
+}
