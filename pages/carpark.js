@@ -29,7 +29,7 @@ const ChangeLetterCase = ({address}) => {
   return <h3 className={`${notoSan.className} `}>{newWord.join(' ')}</h3>
 }
 
-const carpark = () => {
+const Carpark = () => {
   const { data, error, isLoading } = useSWR('https://parkwhere-api.vercel.app/carpark-info', fetcher)
 
   const searchParams = useSearchParams()
