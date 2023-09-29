@@ -1,10 +1,12 @@
+'use client'
+
 import styles from '../styles/Home.module.css'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import useSWR from 'swr'
 import Card from '../components/Card'
 import Navbar from '../components/Navbar'
-import IndexPageLoading from '@/components/IndexPageLoading'
+import IndexPageLoading from '../components/IndexPageLoading'
 
 const fetcher = url => fetch(url).then((res) => res.json())
 
@@ -31,12 +33,12 @@ const search = () => {
 }
 
 export default function Home() {
-  const { data, error, isLoading } = useSWR('https://carpark-locator-api.vercel.app/', fetcher)
-
+  const { data, error, isLoading } = useSWR('https://parkwhere-api.vercel.app/', fetcher)
+  
   if (error) return "An error has occurred."
 
   if (isLoading) return <IndexPageLoading />
-
+  
   return (
     <Layout>
       <Head>
