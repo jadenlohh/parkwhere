@@ -39,17 +39,17 @@ const Card = ({item}) => {
 
   return (
     <div className={`${styles.card} ${rubik.className}`}>
-      <p className={styles.lotsAvailable}>{item.AvailableLots} Lots Available</p>
+      <p className={styles.lotsAvailable}>{item.avaialbleLots} Lots Available</p>
 
-      <ChangeLetterCase address={item.Development} />
+      <ChangeLetterCase address={item.name} />
 
       <div className={styles.cardBody}>
         <div className={styles.carparkDescription}>
           <p>
-            Carpark Code: {item.CarParkID <= 66 ? "-" : item.CarParkID}
+            Carpark Code: {item.carparkID <= 66 ? "-" : item.carparkID}
           </p>
 
-          <VehicleType type={item.LotType} />
+          <VehicleType type={item.lotType} />
         </div>
 
         {/* <div className={styles.tagsContainer}>
@@ -65,7 +65,7 @@ const Card = ({item}) => {
         <div className={styles.buttonContainer}>
           <div className='row align-items-center'>
             <div className='col-6'>
-              <a href={`/carpark?id=${item.CarParkID}`}><button type='button' className={styles.btn}>Details</button></a>
+              <a href={`/carpark?id=${item.carparkID}`}><button type='button' className={styles.btn}>Details</button></a>
             </div>
 
             <div className='col-6'>
@@ -73,10 +73,10 @@ const Card = ({item}) => {
                 <button type='button-outline' className={`${styles.btn} ${styles.btnOutline}`} onClick={() => setOpened(!isOpened)}>View on Map</button>
 
                 {
-                  isOpened &&
+                  isOpened && item.location != 'unknown' &&
                     <div className={styles.mapOptions}>
-                      <a href={'https://www.waze.com/live-map/directions?to=ll.' + item.Location.split(' ')[0] + '%2C' + item.Location.split(' ')[1]} target='_blank'>Waze</a>
-                      <a href={'https://www.google.com/maps/place/' + item.Location.split(' ')[0] + 'N+' + item.Location.split(' ')[1] + 'E'} target='_blank'>Google Map</a>
+                      <a href={'https://www.waze.com/live-map/directions?to=ll.' + item.location.split(' ')[0] + '%2C' + item.location.split(' ')[1]} target='_blank'>Waze</a>
+                      <a href={'https://www.google.com/maps/place/' + item.location.split(' ')[0] + 'N+' + item.location.split(' ')[1] + 'E'} target='_blank'>Google Map</a>
                     </div>
                 }
               </div>

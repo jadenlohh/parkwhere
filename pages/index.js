@@ -56,7 +56,7 @@ export default function Home() {
 
         <ul className='row gy-3' id='carparkList' style={{ listStyle: 'none', padding: 0 }}>
           {
-            data.value.map((item, index) => {
+            data.map((item, index) => {
               return (
                 <li className='col-md-4 col-sm-12' key={index}><Card item={item} /></li>
               )
