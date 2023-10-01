@@ -14,7 +14,7 @@ const IndexPageLoading = () => {
 
       <div className='row gy-4'>
         {
-          [...Array(20).keys()].map(i => {
+          [...Array(21).keys()].map(i => {
             return (
               <div className='col-md-4 col-sm-12' key={i}>
                 <div className={`${styles.card} ${styles.skeleton}`}>
