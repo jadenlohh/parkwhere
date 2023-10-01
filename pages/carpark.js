@@ -109,7 +109,7 @@ const Carpark = () => {
           className={styles.map}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_MAP_KEY}&q=${location}`}>
+          src={`https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAP_KEY}&q=${location}`}>
         </iframe>
       </div>
     </Layout>
