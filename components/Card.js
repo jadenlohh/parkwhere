@@ -82,7 +82,7 @@ const Card = ({item}) => {
         <div className={styles.buttonContainer}>
           <div className='row align-items-center'>
             <div className='col-6'>
-              <a href={`/carpark?id=${item.carparkID}`}><button type='button' className={styles.btn}>Details</button></a>
+              <a href={`/carpark?id=${item.carparkID}&location=${item.location.split(' ')[0] + ',' + item.location.split(' ')[1]}`}><button type='button' className={styles.btn}>Details</button></a>
             </div>
 
             <div className='col-6'>

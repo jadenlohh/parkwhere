@@ -34,6 +34,7 @@ const Carpark = () => {
 
   const searchParams = useSearchParams()
   const carparkID = searchParams.get('id')
+  const location = searchParams.get('location')
 
   const carparkInCBD = ['ACB', 'BBB', 'BRB1', 'CY', 'DUXM', 'HLM', 'KAB', 'KAM', 'KAS', 'PRM', 'SLS', 'SR1', 'SR2', 'TPM', 'UCS', 'WCB']
 
@@ -43,7 +44,7 @@ const Carpark = () => {
 
   return (
     <Layout>
-      <div className='container'>
+      <div className={`container ${styles.container}`}>
         <Navbar />
 
         <div className={`${styles.carparkDetails} ${rubik.className}`}>
@@ -103,6 +104,13 @@ const Carpark = () => {
             })
           }
         </div>
+
+        <iframe
+          className={styles.map}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyCaJjrn-C_RlBiP7yrTtSEZPFzyBwxCt_s&q=${location}`}>
+        </iframe>
       </div>
     </Layout>
   )
