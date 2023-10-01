@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Rubik, Noto_Sans } from 'next/font/google'
 import styles from '../styles/Card.module.css'
 
@@ -36,12 +36,29 @@ const ChangeLetterCase = ({address}) => {
 
 const Card = ({item}) => {
   const [isOpened, setOpened] = useState(false)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setOpened(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [ref])
+
 
   return (
     <div className={`${styles.card} ${rubik.className}`}>
       <p className={styles.lotsAvailable}>{item.avaialbleLots} Lots Available</p>
 
-      <ChangeLetterCase address={item.name} />
+      {/* <ChangeLetterCase address={item.name} /> */}
+      <h4 className={notoSan.className}>{item.name}</h4>
 
       <div className={styles.cardBody}>
         <div className={styles.carparkDescription}>
@@ -70,11 +87,11 @@ const Card = ({item}) => {
 
             <div className='col-6'>
               <div style={{ position: 'relative' }}>
-                <button type='button-outline' className={`${styles.btn} ${styles.btnOutline}`} onClick={() => setOpened(!isOpened)}>View on Map</button>
+                <button type='button-outline' className={`${styles.btn} ${styles.btnOutline}`} onClick={() => setOpened(true)}>View on Map</button>
 
                 {
                   isOpened && item.location != 'unknown' &&
-                    <div className={styles.mapOptions}>
+                    <div className={styles.mapOptions}  ref={ref}>
                       <a href={'https://www.waze.com/live-map/directions?to=ll.' + item.location.split(' ')[0] + '%2C' + item.location.split(' ')[1]} target='_blank'>Waze</a>
                       <a href={'https://www.google.com/maps/place/' + item.location.split(' ')[0] + 'N+' + item.location.split(' ')[1] + 'E'} target='_blank'>Google Map</a>
                     </div>
