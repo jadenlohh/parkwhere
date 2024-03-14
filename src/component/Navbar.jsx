@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav className='py-3'>
       <div className='d-flex flex-row justify-content-between'>
-        <div className='text-start p-3'>
+        <div className='text-start'>
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" className='logo' viewBox="0 0 500 200" enableBackground="new 0 0 500 200" xmlSpace="preserve">
             <path fill="#FEFEFF" opacity="1.000000" stroke="none"
               d="
@@ -341,8 +341,8 @@ const Navbar = () => {
           </svg>
         </div>
 
-        <div className='align-self-center w-100 text-end p-3'>
-          <a href='' className='btn btn-outline-primary shadow-none navbar-btn py-3' role='button'>Where I park?</a>
+        <div className='align-self-center w-100 text-end'>
+          <a href='' className='btn btn-primary shadow-none navbar-btn' role='button'>Where I park?</a>
         </div>
       </div>
     </nav>

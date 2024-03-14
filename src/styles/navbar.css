@@ -1,12 +1,13 @@
 .navbar {
   font-family: "Rubik", sans-serif;
+  font-weight: 400;
 }
 
 .logo { 
   width: 100%;
 }
 
-/* .navbar-btn {
-  padding-top: 1em;
-  padding-bottom: 1em;
-} */
+.navbar-btn {
+  font-size: .9em !important;
+  padding: 0.7em 1.5em 0.7em 1.5em !important;
+}
