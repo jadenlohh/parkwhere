@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 const Navbar = () => {
   return (
     <nav className='py-3'>
-      <div className='d-flex flex-row justify-content-between'>
+      <div className='d-flex flex-row justify-content-between container'>
         <div className='text-start'>
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" className='logo' viewBox="0 0 500 200" enableBackground="new 0 0 500 200" xmlSpace="preserve">
             <path fill="#FEFEFF" opacity="1.000000" stroke="none"
