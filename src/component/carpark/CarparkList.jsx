@@ -9,7 +9,7 @@ const CarparkList = () => {
 
   useEffect(() => {
     async function startFetching() {
-      await axios.get('http://localhost:8000').then(response => {
+      await axios.get('https://parkwhere-api.vercel.app').then(response => {
         if (!ignore) {
           setCarparks(response.data)
         }
@@ -28,14 +28,14 @@ const CarparkList = () => {
   }, [])
 
   return (
-    <ul className='d-flex flex-column ps-0 mt-4 carparks'>
+    <ul className='row ps-0 mt-4 carpark-list'>
       {
         isLoading ? 
           <p>Loading...</p> : 
           
           carparks.map((item, index) => {
             return (
-              <li key={index} className='mb-4'>
+              <li key={index} className='col-md-4 col-sm-12 mb-4'>
                 <Carpark name={item.name} availableLots={item.availableLots} code={item.carparkID} lotType={item.lotType} agency={item.agency} />
               </li>
             )
