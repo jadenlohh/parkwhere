@@ -4,7 +4,7 @@ import CarparkList from './component/carpark/CarparkList';
 
 function App() {
   return (
-    <div className="App container">
+    <div className='App'>
       <Navbar />
 
       <CarparkList />
