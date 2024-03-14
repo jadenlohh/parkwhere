@@ -28,20 +28,28 @@ const CarparkList = () => {
   }, [])
 
   return (
-    <ul className='row ps-0 mt-4 carpark-list'>
-      {
-        isLoading ? 
-          <p>Loading...</p> : 
-          
-          carparks.map((item, index) => {
-            return (
-              <li key={index} className='col-md-4 col-sm-12 mb-4'>
-                <Carpark name={item.name} availableLots={item.availableLots} code={item.carparkID} lotType={item.lotType} agency={item.agency} />
-              </li>
-            )
-          })
-      }
-    </ul>
+    <div>
+      <div className='text-start last-updated-time'>
+        <span>Last Updated at {new Date().toLocaleTimeString('en-SG')}</span>
+      </div>
+
+      <div className='container'>
+        <ul className='row mt-4 ps-0 carpark-list'>
+          {
+            isLoading ? 
+              <p>Loading...</p> : 
+              
+              carparks.map((item, index) => {
+                return (
+                  <li key={index} className='col-md-4 col-sm-12 mb-4'>
+                    <Carpark name={item.name} availableLots={item.availableLots} code={item.carparkID} lotType={item.lotType} agency={item.agency} />
+                  </li>
+                )
+              })
+          }
+        </ul>
+      </div>
+    </div>
   )
 }
 
