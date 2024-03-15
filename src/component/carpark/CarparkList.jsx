@@ -30,7 +30,7 @@ const CarparkList = () => {
             carparks.map((item, index) => {
               return (
                 <li key={index} className='col-md-4 col-sm-12 mb-4'>
-                  <Carpark name={item.name} availableLots={item.availableLots} code={item.carparkID} lotType={item.lotType} agency={item.agency} />
+                  <Carpark name={item.name} availableLots={item.availableLots} carparkID={item.carparkID} lotType={item.lotType} agency={item.agency} />
                 </li>
               )
             })
