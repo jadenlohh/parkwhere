@@ -47,9 +47,9 @@ const Carpark = ({ name, availableLots, code, lotType, agency }) => {
         {/* <span className='tag free-parking-tag'>Free Parking</span> */}
       </div>
 
-      {/* <div className='d-flex flex-row buttons-container'>
-        <a href='' className='btn btn-primary shadow-none w-100 me-1 action-btn' role='button'>View on Maps</a>
-      </div> */}
+      <div className='d-flex flex-row buttons-container'>
+        <a href='' className='btn btn-primary shadow-none w-100 me-1 action-btn' role='button'>Details</a>
+      </div>
     </div>
   )
 }

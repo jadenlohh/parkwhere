@@ -9,7 +9,7 @@ const CarparkList = () => {
   useEffect(() => {
     let ignore = false
 
-    axios.get('https://parkwhere-api.vercel.app').then(response => {
+    axios.get('http://localhost:8000').then(response => {
       if (!ignore) {
         setCarparks(response.data)
       }
