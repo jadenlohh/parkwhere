@@ -1,14 +1,18 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Navbar from './component/Navbar';
-import CarparkList from './component/carpark/CarparkList';
+import Layout from './pages/Layout';
+import Home from './pages/Home';
+import CarparkDetails from './pages/CarparkDetails';
 
 function App() {
-  return (
-    <div className='App'>
-      <Navbar />
-
-      <CarparkList />
-    </div>
+  return (<BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path='/carpark/*' element={<CarparkDetails />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
