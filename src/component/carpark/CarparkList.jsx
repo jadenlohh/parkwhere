@@ -9,7 +9,7 @@ const CarparkList = () => {
   useEffect(() => {
     let ignore = false
 
-    axios.get('http://localhost:8000').then(response => {
+    axios.get(process.env.REACT_APP_API_URL).then(response => {
       if (!ignore) {
         setCarparks(response.data)
       }
@@ -20,7 +20,7 @@ const CarparkList = () => {
 
   return (
     <div>
-      <div className='text-start last-updated-time'>
+      <div className='text-start container last-updated-time'>
         <span>Last Updated at {new Date().toLocaleTimeString('en-SG')}</span>
       </div>
 

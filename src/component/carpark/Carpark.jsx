@@ -27,7 +27,7 @@ const Carpark = ({ name, availableLots, carparkID, lotType, agency }) => {
   })
 
   return (
-    <a href={'/carpark/' + carparkID}>
+    <a href={'/carpark?id=' + carparkID}>
       <div className='carpark-info-card text-start'>
         <div className='d-flex flex-row justify-content-between'>
           <div>
