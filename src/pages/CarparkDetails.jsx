@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/carpark-details.css';
-import HDBCarpark from '../component/carpark/carpark-details/HDBCarpark';
+import HDB from '../component/carpark/carpark-details/HDB';
 import { useSearchParams } from 'react-router-dom';
+import OtherCarparks from '../component/carpark/carpark-details/OtherCarpark';
 
 const CarparkDetails = () => {
   const [carpark, setCarpark] = useState([])
@@ -21,7 +22,11 @@ const CarparkDetails = () => {
   }, [])
 
   return (
-    <HDBCarpark name={carpark.name} location={carpark.location} />
+    <>
+      {
+        carpark.carparkID != false ? <HDB name={carpark.name} location={carpark.location} /> : <OtherCarparks name={carpark.name} location={carpark.location} />
+      }
+    </>
   )
 }
 
