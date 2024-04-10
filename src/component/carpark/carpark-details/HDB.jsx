@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HDBCarpark = ({ name, location }) => {
+const HDB = ({ name, location }) => {
   return (
     <div className='container mt-4 carpark-details-container'>
       <h2>{name}</h2>
@@ -24,14 +24,13 @@ const HDBCarpark = ({ name, location }) => {
         <iframe
           className='my-5'
           style={{ border: 'none', width: '100%', 'height': '20em', borderRadius: '.6em' }}
-          loading="lazy"
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
-          src={"https://www.google.com/maps/embed/v1/place?key=" + process.env.REACT_APP_GOOGLE_MAP_KEY + "&q=" + location}>
+          src={"https://www.google.com/maps/embed/v1/place?maptype=satellite&key=" + process.env.REACT_APP_GOOGLE_MAP_KEY + "&q=" + location}>
         </iframe>
       </div>
     </div>
   )
 }
 
-export default HDBCarpark
+export default HDB
