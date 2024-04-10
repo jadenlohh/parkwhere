@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     let ignore = false
 
-    axios.get('https://api.parkwhere.jadenloh.com').then(response => {
+    axios.get(process.env.REACT_APP_API_URL).then(response => {
       if (!ignore) {
         setCarparks(response.data)
       }
