@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import '../styles/carpark.css';
-import axios from 'axios';
+import React from 'react';
+import '../styles/home.css';
 import Carpark from '../component/carpark/Carpark';
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, SearchBox, Hits, Pagination } from 'react-instantsearch';
 
 const searchClient = algoliasearch('TDYA19370W', '00bed413632a8bd960c5b22edb2221bf');
 
-function Hit({ hit }) {
+const Hit = ({ hit }) => {
   return (
     <article className=''>
       <Carpark name={hit.name} availableLots={hit.availableLots} carparkID={hit.carparkID} lotType={hit.lotType} agency={hit.agency} />
@@ -39,10 +38,7 @@ const Home = () => {
           <Hits hitComponent={Hit} classNames={{
             list: 'row mt-2 ps-0 carpark-list my-0',
             item: 'col-md-4 col-sm-12 mb-4'
-          }}
-          items={[
-            { label: '15 hits per page', value: 15, default: true },
-          ]} />
+          }} />
         </div>
 
         <div className='container mt-4 mb-5'>
