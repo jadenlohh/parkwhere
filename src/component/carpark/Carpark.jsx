@@ -4,13 +4,13 @@ import '../../styles/carpark.css';
 const Carpark = ({ name, availableLots, carparkID, lotType, agency }) => {
   const carparkLotType = ((type) => {
     if (type === 'C') {
-      return <i className='fa-solid fa-car carpark-icon'></i>
+      return <i className='fa-solid fa-car-side carpark-icon'></i>
     }
     else if (type === 'Y') {
       return <i className='fa-solid fa-motorcycle carpark-icon'></i>
     }
     else {
-      return <i className='fa-solid fa-truck-front carpark-icon'></i>
+      return <i className='fa-solid fa-truck carpark-icon'></i>
     }
   })
 
