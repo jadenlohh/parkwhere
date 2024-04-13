@@ -75,4 +75,20 @@
     padding: .9rem 2.8rem;
     width: 100%;
   }
+
+  .pagination-item {
+    padding: 0.72em;
+  }
+
+  .pagination-link {
+    font-size: 0.9rem;
+    padding: 0.72em;
+  }
+  
+  .ais-Pagination-item {
+    display: none;
+  }
+  .ais-Pagination-item:nth-child(1), .ais-Pagination-item:last-child, .ais-Pagination-item--selected {
+    display: block;
+  }
 }

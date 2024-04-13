@@ -49,7 +49,7 @@ const Home = () => {
             selectedItem: 'pagination-item-selected'
           }}
           translations={{
-            previousPageItemText: 'Previous',
+            previousPageItemText: 'Prev',
             nextPageItemText: 'Next'
           }} />
         </div>
