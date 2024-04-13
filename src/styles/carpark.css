@@ -1,3 +1,22 @@
+.search-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 1.35rem;
+  left: 12.2rem;
+  font-size: 1.2rem;
+}
+
+.search-bar {
+  border-radius: 20rem;
+  border: 1px solid #727a81;
+  font-family: "Rubik", sans-serif;
+  padding: 1.1rem 3.2rem;
+  width: 75%;
+}
+
 .last-updated-time {
   background-color: white;
   position: sticky;
@@ -10,6 +29,7 @@
 
 .carpark-list {
   list-style: none;
+  padding: 0;
 }
 
 .carpark-list a {
@@ -85,7 +105,6 @@
   color: #135DD8;
 }
 
-
 .ura-tag {
   border: 1px solid #E10600;
   color: #E10600;
@@ -94,4 +113,52 @@
 .free-parking-tag {
   border: 1px solid #0F52BA;
   color: #0F52BA;
+}
+
+.pagination {
+  list-style: none;
+  font-family: "Rubik", sans-serif;
+}
+
+.pagination-item {
+  height: auto;
+  padding: 1em 0.8em;
+  width: auto;
+}
+
+.pagination-item:hover {
+  background-color: #E1E5E8;
+  border-radius: .6rem;
+}
+
+.pagination-item:hover .pagination-link {
+  color: black;
+}
+
+.pagination-link {
+  color: #135DD8;
+  padding: 1em 0.8em;
+  text-decoration: none;
+}
+
+.pagination-item-selected, .pagination-item-selected:hover {
+  background-color: #135DD8;
+  border-radius: .6rem;
+}
+
+.pagination-item-selected .pagination-link, .pagination-item-selected:hover .pagination-link {
+  color: white;
+}
+
+@media (max-width: 575.98px)  {
+  .search-icon {
+    top: 1.3rem;
+    left: 1.8rem;
+    font-size: 1rem;
+  }
+
+  .search-bar {
+    padding: .95rem 2.8rem;
+    width: 100%;
+  }
 }
