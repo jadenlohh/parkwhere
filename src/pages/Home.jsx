@@ -17,13 +17,15 @@ function Hit({ hit }) {
 
 const Home = () => {
   return (
-    <div className=''>
+    <div className='mt-2'>
       <InstantSearch searchClient={searchClient} indexName="carparks">
-        <div className='container'>
+        <div className='container search-container'>
+          <i className="fa-solid fa-magnifying-glass search-icon"></i>
+
           <SearchBox placeholder='Search for carparks' classNames={{
             root: 'container',
-            form: 'row',
-            input: 'col-12 search-bar',
+            form: 'row justify-content-center',
+            input: 'form-control search-bar',
             submit: 'd-none',
             reset: 'd-none'
           }} />
@@ -35,12 +37,26 @@ const Home = () => {
 
         <div className='container'>
           <Hits hitComponent={Hit} classNames={{
-            list: 'row mt-2 ps-0 carpark-list',
+            list: 'row mt-2 ps-0 carpark-list my-0',
             item: 'col-md-4 col-sm-12 mb-4'
-          }} />
+          }}
+          items={[
+            { label: '15 hits per page', value: 15, default: true },
+          ]} />
         </div>
 
-        <Pagination />
+        <div className='container mt-4 mb-5'>
+          <Pagination showFirst={false} showLast={false} classNames={{
+            list: 'row justify-content-center pagination mb-0',
+            item: 'col-1 pagination-item',
+            link: 'pagination-link',
+            selectedItem: 'pagination-item-selected'
+          }}
+          translations={{
+            previousPageItemText: 'Previous',
+            nextPageItemText: 'Next'
+          }} />
+        </div>
       </InstantSearch>
     </div>
   )
