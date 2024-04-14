@@ -48,7 +48,7 @@ const Carpark = ({ name, availableLots, carparkID, lotType, agency }) => {
       <div className='carpark-info-card text-start'>
         <div className='d-flex flex-row justify-content-between'>
           <div>
-            <p className='lots-available'>{availableLots} Lots Available</p>
+            {availableLots <= 1 ? <p className='lots-available'>{availableLots} Lot Available</p> : <p className='lots-available'>{availableLots} Lots Available</p>}
           </div>
 
           <div className='align-self-center text-center carpark-icon-container'>
