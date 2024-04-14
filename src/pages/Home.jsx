@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/home.css';
 import Carpark from '../component/carpark/Carpark';
 import algoliasearch from 'algoliasearch/lite';
@@ -15,6 +15,9 @@ const Hit = ({ hit }) => {
 }
 
 const Home = () => {
+  const [toggle, setToggle] = useState(false)
+  const currentTime = new Date().toLocaleTimeString('en-SG')
+
   return (
     <div className='mt-2'>
       <InstantSearch searchClient={searchClient} indexName="carparks">
@@ -30,8 +33,26 @@ const Home = () => {
           }} />
         </div>
 
-        <div className='text-start container my-3 last-updated-time'>
-          <span>Last Updated at {new Date().toLocaleTimeString('en-SG')}</span>
+        <div className='container my-3 masterhead'>
+          <div className='d-flex masterhead-title'>
+            <div className='pe-1'><p className='mb-0'>Last Updated at {currentTime}</p></div>
+
+            {
+              toggle ? 
+              <div className='px-0' onClick={() => {setToggle(!toggle)}} style={{display: 'flex'}}><i className="fa-solid fa-chevron-up"></i></div> : 
+              <div className='px-0' onClick={() => {setToggle(!toggle)}} style={{display: 'flex'}}><i className="fa-solid fa-chevron-up" style={{rotate: '180deg'}}></i></div>
+            }
+          </div>
+
+          {toggle && (
+            <div className='my-3 masterhead-content'>
+              <p>
+                All parking details are obtained from&nbsp;
+                <a href='https://datamall.lta.gov.sg/content/datamall/en.html' style={{textDecoration: 'none'}}>LTA <i className="fa-solid fa-arrow-up-right-from-square" style={{fontSize: '0.62rem'}}></i></a> and&nbsp;
+                <a href='https://www.ura.gov.sg/maps/api' style={{textDecoration: 'none'}}>URA <i className="fa-solid fa-arrow-up-right-from-square" style={{fontSize: '0.62rem'}}></i></a> API.&nbsp;Parking details is updated every minute.
+              </p>
+            </div>
+          )}
         </div>
 
         <div className='container'>
