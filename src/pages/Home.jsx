@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/home.css';
+import axios from 'axios';
 import Carpark from '../component/carpark/Carpark';
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, SearchBox, Hits, Pagination } from 'react-instantsearch';
@@ -16,7 +17,20 @@ const Hit = ({ hit }) => {
 
 const Home = () => {
   const [toggle, setToggle] = useState(false)
+  const [carparks, setCarparks] = useState([])
   const currentTime = new Date().toLocaleTimeString('en-SG')
+
+  useEffect(() => {
+    let ignore = false
+
+    axios.get(process.env.REACT_APP_API_URL).then(response => {
+      if (!ignore) {
+        setCarparks(response.data)
+      }
+    })
+
+    return () => { ignore = true }
+  }, [])
 
   return (
     <div className='mt-2'>
@@ -38,9 +52,9 @@ const Home = () => {
             <div className='pe-1'><p className='mb-0'>Last Updated at {currentTime}</p></div>
 
             {
-              toggle ? 
-              <div className='px-0' onClick={() => {setToggle(!toggle)}} style={{display: 'flex'}}><i className="fa-solid fa-chevron-up"></i></div> : 
-              <div className='px-0' onClick={() => {setToggle(!toggle)}} style={{display: 'flex'}}><i className="fa-solid fa-chevron-up" style={{rotate: '180deg'}}></i></div>
+              toggle ?
+                <div className='px-0' onClick={() => { setToggle(!toggle) }} style={{ display: 'flex' }}><i className="fa-solid fa-chevron-up"></i></div> :
+                <div className='px-0' onClick={() => { setToggle(!toggle) }} style={{ display: 'flex' }}><i className="fa-solid fa-chevron-up" style={{ rotate: '180deg' }}></i></div>
             }
           </div>
 
@@ -48,8 +62,8 @@ const Home = () => {
             <div className='my-3 masterhead-content'>
               <p>
                 All parking details are obtained from&nbsp;
-                <a href='https://datamall.lta.gov.sg/content/datamall/en.html' style={{textDecoration: 'none'}}>LTA <i className="fa-solid fa-arrow-up-right-from-square" style={{fontSize: '0.62rem'}}></i></a> and&nbsp;
-                <a href='https://www.ura.gov.sg/maps/api' style={{textDecoration: 'none'}}>URA <i className="fa-solid fa-arrow-up-right-from-square" style={{fontSize: '0.62rem'}}></i></a> API.&nbsp;Parking details is updated every minute.
+                <a href='https://datamall.lta.gov.sg/content/datamall/en.html' style={{ textDecoration: 'none' }}>LTA <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.62rem' }}></i></a> and&nbsp;
+                <a href='https://www.ura.gov.sg/maps/api' style={{ textDecoration: 'none' }}>URA <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.62rem' }}></i></a> APIs and may not contain all carparks in Singapore.
               </p>
             </div>
           )}
@@ -69,10 +83,10 @@ const Home = () => {
             link: 'pagination-link',
             selectedItem: 'pagination-item-selected'
           }}
-          translations={{
-            previousPageItemText: 'Prev',
-            nextPageItemText: 'Next'
-          }} />
+            translations={{
+              previousPageItemText: 'Prev',
+              nextPageItemText: 'Next'
+            }} />
         </div>
       </InstantSearch>
     </div>
