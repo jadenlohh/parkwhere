@@ -4,13 +4,13 @@ import '../../styles/carpark.css';
 const Carpark = ({ name, availableLots, carparkID, lotType, agency }) => {
   const carparkLotType = ((type) => {
     if (type === 'C') {
-      return <i className='fa-solid fa-car carpark-icon'></i>
+      return <i className='fa-solid fa-car-side carpark-icon'></i>
     }
     else if (type === 'Y') {
       return <i className='fa-solid fa-motorcycle carpark-icon'></i>
     }
     else {
-      return <i className='fa-solid fa-truck-front carpark-icon'></i>
+      return <i className='fa-solid fa-truck carpark-icon'></i>
     }
   })
 
@@ -48,7 +48,7 @@ const Carpark = ({ name, availableLots, carparkID, lotType, agency }) => {
       <div className='carpark-info-card text-start'>
         <div className='d-flex flex-row justify-content-between'>
           <div>
-            <p className='lots-available'>{availableLots} Lots Available</p>
+            {availableLots <= 1 ? <p className='lots-available'>{availableLots} Lot Available</p> : <p className='lots-available'>{availableLots} Lots Available</p>}
           </div>
 
           <div className='align-self-center text-center carpark-icon-container'>
