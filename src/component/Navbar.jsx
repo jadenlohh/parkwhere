@@ -344,7 +344,7 @@ const Navbar = () => {
         </div>
 
         <div className='align-self-center w-100 text-end'>
-          <a href='' className='btn btn-primary shadow-none navbar-btn' role='button'>Where I park?</a>
+          <a href='/where-i-park' className='btn btn-primary shadow-none navbar-btn' role='button'>Where I park?</a>
         </div>
       </div>
     </nav>
