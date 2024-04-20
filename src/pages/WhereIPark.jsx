@@ -31,13 +31,13 @@ const WhereIPark = () => {
       {
         parkingDetails ?
           <div className='text-center'>
-            <i className="fa-solid fa-car-side" style={{ fontSize: '2.5rem' }}></i>
+            <i className="fa-solid fa-car-side" style={{ fontSize: '2.75rem' }}></i>
 
-            <p className='mt-3 mb-2'>You parked your car at</p>
+            <p className='mt-3 mb-2' style={{fontSize: '1rem'}}>You parked your car at</p>
             <h5>level <span>{localStorage.getItem('carpark-level')}</span> lot <span>{localStorage.getItem('lot-number')}</span></h5>
 
             {/* <p className='mt-4' onClick={deleteParkingDetails} style={{fontSize: '0.8rem'}}>Clear parking details</p> */}
-            <button className='btn btn-primary shadow-none mt-2' style={{borderRadius: '20rem', padding: '0.5rem 1rem', fontSize: '0.8rem'}} onClick={deleteParkingDetails}>Done</button>
+            <button className='btn btn-primary shadow-none mt-2' style={{borderRadius: '20rem', padding: '0.5rem 1rem', fontSize: '0.9rem'}} onClick={deleteParkingDetails}>Done</button>
           </div> :
           <div>
             <div>
