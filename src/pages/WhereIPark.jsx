@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/where-i-park.css';
 
 const WhereIPark = () => {
@@ -19,6 +19,12 @@ const WhereIPark = () => {
 
     setParkingDetails(false)
   }
+
+  useEffect(() => {
+    if (localStorage.getItem('carpark-level') && localStorage.getItem('lot-number') !== '') {
+      setParkingDetails(true)
+    }
+  })
 
   return (
     <div className='container mt-2 where-i-park'>
