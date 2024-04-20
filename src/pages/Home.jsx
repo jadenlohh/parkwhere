@@ -18,7 +18,7 @@ const Hit = ({ hit }) => {
 const Home = () => {
   const [toggle, setToggle] = useState(false)
   const [carparks, setCarparks] = useState([])
-  const currentTime = new Date().toLocaleTimeString('en-SG')
+  const [time, setTime] = useState('')
 
   useEffect(() => {
     let ignore = false
@@ -26,6 +26,7 @@ const Home = () => {
     axios.get(process.env.REACT_APP_API_URL).then(response => {
       if (!ignore) {
         setCarparks(response.data)
+        setTime(new Date().toLocaleTimeString('en-SG'))
       }
     })
 
@@ -49,7 +50,9 @@ const Home = () => {
 
         <div className='container my-3 masterhead'>
           <div className='d-flex masterhead-title'>
-            <div className='pe-1'><p className='mb-0'>Last Updated at {currentTime}</p></div>
+            <div className='pe-1'>
+              <p className='mb-0'>Last Updated at {time}</p>
+            </div>
 
             {
               toggle ?
